@@ -1,4 +1,4 @@
-package com.Joedobo27.disablefogspider;
+package com.joedobo27.disablefogspider;
 
 import javassist.CtMethod;
 import javassist.bytecode.AccessFlag;

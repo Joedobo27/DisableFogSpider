@@ -1,4 +1,4 @@
-package com.Joedobo27.disablefogspider;
+package com.joedobo27.disablefogspider;
 
 
 import com.wurmonline.server.bodys.Wound;
@@ -27,11 +27,10 @@ import java.util.logging.Logger;
 
 public class DisableFogSpider implements WurmServerMod, Initable, ServerStartedListener, Configurable {
 
-    private static ClassPool classPool;
-    private static Logger logger;
-
-    private boolean fogNoSpawnFogSpiders;
-    private boolean fogSpiderLikeGiantSpider;
+    private static ClassPool classPool = HookManager.getInstance().getClassPool();
+    private static Logger logger = Logger.getLogger(DisableFogSpider.class.getName());
+    private boolean fogNoSpawnFogSpiders = false;
+    private boolean fogSpiderLikeGiantSpider = false;
 
     @Override
     public void configure(Properties properties) {
@@ -185,10 +184,5 @@ public class DisableFogSpider implements WurmServerMod, Initable, ServerStartedL
             logger.log(Level.INFO, option + " option changes FAILURE");
             logger.log(Level.FINE, Arrays.toString(ints));
         }
-    }
-
-    static {
-       classPool = HookManager.getInstance().getClassPool();
-       logger = Logger.getLogger(DisableFogSpider.class.getName());
     }
 }
